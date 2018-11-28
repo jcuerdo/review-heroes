@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+use ReviewHeroes\Commands\MonthlyStats;
+use Symfony\Component\Debug\Debug;
+use ReviewHeroes\Commands\ResetDatabase;
+use ReviewHeroes\Commands\BroadcastStats;
+use ReviewHeroes\Commands\NotifyUnfinishedReviews;
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+Debug::enable();
+
+set_time_limit(0);
+
+/** @var \Silex\Application $app */
+$app = require_once __DIR__.'/bootstrap.php';
+
+$application = $app['console'];
+$application->add(new ResetDatabase());
+$application->add(new BroadcastStats(null, $app));
+$application->add(new NotifyUnfinishedReviews(null, $app));
+$application->add(new MonthlyStats(null, $app));
+$application->run();
+
+?>

@@ -1,0 +1,31 @@
+<div class="row most-participative-list">
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for element in ranking %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':element.id}) }}">{{ element.username }}</a></td>
+                        <td>
+                            <a href="{{ url('profile',{'id':element.id}) }}">
+                                <img src="{{ element.avatar_url }}"/>
+                            </a>
+                        </td>
+                        <td class="ranking_total">{{ element.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <canvas id="chart"></canvas>
+    </div>
+</div>

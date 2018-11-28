@@ -1,0 +1,40 @@
+<div class="row filters">
+    <form method="GET">
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepickerstart'>
+                    <input type='text' class="form-control" name="startDate" value="{{ startDate }}"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepickerend'>
+                    <input type='text' class="form-control" name="endDate" value="{{ endDate }}"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">@</span>
+                    <input type="text" value="{{ userlist }}" placeholder="User list (comman separated)" class="form-control" id="user_list" name="userlist" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <input type="submit" class="btn btn-default" value="Search"/>
+        </div>
+
+    </form>
+</div>

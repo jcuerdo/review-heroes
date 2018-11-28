@@ -1,0 +1,20 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "milo/github-api": "^1.4",
+        "twig/twig": "^1.28",
+        "knplabs/console-service-provider": "^2.0",
+        "symfony/twig-bridge": "^3.1",
+        "deployer/deployer": "^4.0",
+        "df/silex-yaml-config-provider": "dev-master",
+        "symfony/asset": "^3.2",
+        "phpmailer/phpmailer": "^5.2",
+        "aws/aws-sdk-php": "^3.32",
+        "threadmeup/slack-sdk": "dev-master",
+        "maknz/slack": "^1.7",
+        "league/html-to-markdown": "^4.4"
+    },
+    "autoload": {
+      "psr-4": {"ReviewHeroes\\": "src/"}
+    }
+}

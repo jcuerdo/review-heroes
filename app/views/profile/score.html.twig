@@ -1,0 +1,35 @@
+<div class="row placeholders">
+    <br/>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ pr_stats.total }}</span>
+        <h4>Comments</h4>
+        <span class="text-muted">Total Comments in PRs</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ pr_stats.approved_count }}</span>
+        <h4>Approved</h4>
+        <span class="text-muted">Approved PRs</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ pr_stats.pickies_count }}</span>
+        <h4>Request For Change</h4>
+        <span class="text-muted">Total Requests For Changes</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ pr_stats.not_reviewed_count }}</span>
+        <h4>Not Reviewed</h4>
+        <span class="text-muted">PRs not Reviewed</span>
+    </div>
+</div>
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ build_stats.success_count }}</span>
+        <h4 class="passed_build">Passed Builds</h4>
+        <span class="text-muted">Passed Builds in PRs</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <span>{{ build_stats.failures_count }}</span>
+        <h4 class="failed_build">Broken Builds</h4>
+        <span class="text-muted">Broken Builds in PRs</span>
+    </div>
+</div>

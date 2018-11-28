@@ -1,0 +1,39 @@
+app:
+  debug: false
+
+redis:
+  host: 'redis'
+  port: 6379
+  timeout: 30
+  persistent: true
+  serializer.igbinary: false
+  serializer.php: true
+  database: '0'
+
+mysql:
+  host: 'db'
+  dbname: 'reviewheroes'
+  username: 'root'
+  password: '123456'
+
+github:
+  apitoken: 'YOURAPITOKEN'
+
+notifications:
+  security_token: '12345'
+  frecuency: '7' #days
+  email:
+    username: 'USERNAME'
+    password: 'PASSWORD'
+    host: 'HOST'
+    port: 587
+    from: 'FROM'
+    title: 'Review Heroes'
+  slack:
+    webhook_endpoint: 'SLACKENDPOINT'
+    icon: 'ICON_URL'
+
+aws:
+  access_key: ''
+  secret: ''
+  region: 'us-west-2'

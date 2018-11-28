@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% include 'layout/head.html.twig' %}
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    {% include 'layout/header.html.twig' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'layout/navbar.html.twig' %}
+{% endblock %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Subscribe</h1>
+
+            {% block sidebar %}
+                {% include 'layout/sidebar.html.twig' %}
+            {% endblock %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Email</h2>
+                    {% block subscribe_form %}
+                        {% include 'subscribe/subscribe_form.html.twig' %}
+                    {% endblock %}
+                </div>
+                <div class="col-md-6">
+                    <h2>Slack</h2>
+                    {% block slack_channels %}
+                        {% include 'subscribe/slack_channel.html.twig' %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                {% block subscribe_stats %}
+                    {% include 'subscribe/subscribe_stats.html.twig' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+                {% include 'layout/footer.html.twig' %}
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#subscribe').addClass('active');
+    });
+</script>
+</html>

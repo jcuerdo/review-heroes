@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% include 'layout/head.html.twig' %}
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    {% include 'layout/header.html.twig' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'layout/navbar.html.twig' %}
+{% endblock %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Heroes</h1>
+
+            {% block sidebar %}
+                {% include 'layout/sidebar.html.twig' %}
+            {% endblock %}
+
+            {% block users_list %}
+                {% include 'heroes/users_list.html.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+                {% include 'layout/footer.html.twig' %}
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<script>
+    $(document).ready(function(){
+        $('#heroes').addClass('active');
+    });
+</script>
+</html>

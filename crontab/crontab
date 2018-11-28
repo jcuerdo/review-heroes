@@ -1,0 +1,2 @@
+0 9 1 * * docker exec reviewheroes_phpfpm_1 /var/www/html/src/console monthly-stats > /tmp/monthly-stats.log 2>&1
+0 0 * * * docker exec reviewheroes_phpfpm_1 /var/www/html/src/console notify-unfinished-reviews > /tmp/monthly-stats.log 2>&1

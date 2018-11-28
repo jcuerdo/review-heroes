@@ -1,0 +1,223 @@
+{% block ranking_row_filters %}
+    {% include 'ranking/ranking_row_filters.html.twig' %}
+{% endblock %}
+
+<div class="space-small"></div>
+
+{% if (global.request.uri | split('?'))[1] is defined %}
+    {%  set filters_query_string = '?' ~ (global.request.uri | split('?'))[1] %}
+{% else %}
+    {%  set filters_query_string = '' %}
+{% endif %}
+
+<div class="row most-participative-list">
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'participations'})}}{{ filters_query_string }} ">
+                    Top Participation
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for participation in participations %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':participation.id}) }}">{{ participation.username }}</a></td>
+                        <td>
+                            <a href="{{ url('profile',{'id':participation.id}) }}">
+                                <img src="{{ participation.avatar_url }}"/>
+                            </a>
+                        </td>
+                        <td class="ranking_total">{{ participation.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'participations'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+                <a href="{{ url('participation-graph', {'id':'participation'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'unfinished'})}}{{ filters_query_string }} ">
+                    Top Unfinished Reviews
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for nonFinished in nonFinished %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':nonFinished.id}) }}">{{ nonFinished.username }}</a></td>
+                        <td><a href="{{ url('profile',{'id':nonFinished.id}) }}"><img src="{{ nonFinished.avatar_url }}"/></a></td>
+                        <td class="ranking_total">{{ nonFinished.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'unfinished'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row most-participative-list">
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'approvals'})}}{{ filters_query_string }} ">
+                    Top Approvals
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for approve in approvers %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':approve.id}) }}">{{ approve.username }}</a></td>
+                        <td><a href="{{ url('profile',{'id':approve.id}) }}"><img src="{{ approve.avatar_url }}"/></a></td>
+                        <td class="ranking_total">{{ approve.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'approvals'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+                <a href="{{ url('participation-graph', {'id':'approval'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'pickies'})}}{{ filters_query_string }} ">
+                    Top Request for Changes
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for pickie in pickies %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':pickie.id}) }}">{{ pickie.username }}</a></td>
+                        <td><a href="{{ url('profile',{'id':pickie.id}) }}"><img src="{{ pickie.avatar_url }}"/></a></td>
+                        <td class="ranking_total">{{ pickie.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'pickies'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+                <a href="{{ url('participation-graph', {'id':'changes'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row most-participative-list">
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'breakers'})}}{{ filters_query_string }} ">
+                    Top Build Breakers
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for breaker in breakers %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':breaker.id}) }}">{{ breaker.username }}</a></td>
+                        <td><a href="{{ url('profile',{'id':breaker.id}) }}"><img src="{{ breaker.avatar_url }}"/></a></td>
+                        <td class="ranking_total">{{ breaker.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'breakers'})}}{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <h3>
+                <a href="{{ url('ranking_full_list', {id: 'comments'})}}{{ filters_query_string }} ">
+                    Top Comments
+                </a>
+            </h3>
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for commenter in commenters %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':commenter.id}) }}">{{ commenter.username }}</a></td>
+                        <td><a href="{{ url('profile',{'id':commenter.id}) }}"><img src="{{ commenter.avatar_url }}"/></a></td>
+                        <td class="ranking_total">{{ commenter.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div id="ranking_list_options">
+                <a href="{{ url('ranking_full_list', {id: 'comments'})}}?{{ filters_query_string }} ">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

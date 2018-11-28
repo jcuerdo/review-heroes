@@ -1,0 +1,46 @@
+<div class="row most-participative-list">
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users_col_1 %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':user.id}) }}">{{ user.username }}</a></td>
+                        <td>
+                            <a href="{{ url('profile',{'id':user.id}) }}">
+                                <img src="{{ user.avatar_url }}"/>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <table class="table table-striped pr_list">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Avatar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users_col_2 %}
+                    <tr>
+                        <td><a href="{{ url('profile',{'id':user.id}) }}">{{ user.username }}</a></td>
+                        <td><img src="{{ user.avatar_url }}"/></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

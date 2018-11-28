@@ -1,0 +1,6 @@
+log/*/*
+app/vendor
+mysql/databases/*
+.idea/
+.DS_Store
+!.gitkeep

@@ -1,0 +1,37 @@
+<h2 class="sub-header">Pull Requests</h2>
+<div class="table-responsive">
+    <table class="table table-striped pr_list">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>State</th>
+            <th>At</th>
+            <th>Reviewed</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pr in prs %}
+            <tr>
+                {% if pr.pullRequestUrl is not null %}
+                    <td><a target="_blank" href="{{ pr.pullRequestUrl }}">{{ pr.pullRequestTitle }}</a></td>
+                {% else %}
+                    <td> Not Available</td>
+                {% endif %}
+                <td><a href="{{ url('profile',{'id':pr.pullRequestOwnerId}) }}"><img src="{{ pr.avatar_url }}" /></a></td>
+                <td>{{ pr.pullState }}</td>
+                <td>{{ pr.creationDate }}</td>
+                <td>
+                    {% if pr.reviewState == 'approved' %}
+                        <img src="{{ asset('/img/accept-tick-icon-12.png') }}" />
+                    {% elseif pr.reviewState == 'changes_requested' %}
+                        <img src="{{ asset('/img/Red-Cross-Mark-PNG.png') }}" />
+                    {% elseif pr.reviewState == 'commented' or pr.reviewState == ''  %}
+                        <img src="{{ asset('/img/comment-png-16.png') }}" />
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
