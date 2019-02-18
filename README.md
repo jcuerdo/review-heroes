@@ -1,6 +1,6 @@
 # Install
 
-		$ git clone https://github.com/rubencougil/review-heroes.git
+		$ git clone https://github.com/jcuerdo/review-heroes.git
 		$ cd review-heroes
 		$ docker-compose build
 		$ docker-compose up -d
