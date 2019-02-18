@@ -13,7 +13,7 @@ set('repository', 'git@github.com:YOURORGANIZATION/review-heroes.git');
 
 server('production-aws', 'YOUREC".compute.amazonaws.com')
     ->user('ec2-user')
-    ->pemFile('../review-heroes.pem')
+    ->pemFile('./ops/review-heroes.pem')
     ->set('deploy_path', '/home/ec2-user/review-heroes');
 
 // Tasks
